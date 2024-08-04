@@ -49,6 +49,8 @@ Due to Kaggle's limited free GPU/RAM, image sizes are reduced to ensure the trai
 - Predict on the test dataset and process results.
 
 ## Evaluation
+[dogs-vs-cats-redux-evaluation]www.kaggle.com/competitions/dogs-vs-cats-redux-kernels-edition/overview/evaluation
+
 Submissions are scored on the log loss:
 
 LogLoss = -1/n ∑(i=1 to n) [(y_i * (log(y_hat_i)) + (1 - y_i) (log(1 - y_hat_i))]
