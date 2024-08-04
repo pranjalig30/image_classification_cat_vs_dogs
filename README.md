@@ -23,7 +23,7 @@ The train folder contains 25,000 images of dogs and cats. Each image in this fol
 
 Since the Kaggle's free GPU/RAM is limited, we need to decrease the size of the raw image file so that entire traning process can be finished within the computing power.
 
-## Transfer Learning <a name="Transfer Learning"></a>
+## Transfer Learning <a name="Transfer-Learning"></a>
 
 ### Benefits of Transfer Learning
 
