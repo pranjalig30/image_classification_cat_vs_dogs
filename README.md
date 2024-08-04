@@ -9,7 +9,7 @@
 2. [Transfer Learning](#Transfer-Learning)
 3. [Code Summary](#Code-Summary)
 
-## Introduction <a name="Introduction"></a>
+## Introduction
 This repository contains a Jupyter notebook that implements a Convolutional Neural Network (CNN) to classify images of cats and dogs. The notebook explores two different model architectures: a custom CNN and a pre-trained VGG16 model.
 
 This Notebook should be run in Kaggle to import the dataset.
@@ -23,8 +23,7 @@ The train folder contains 25,000 images of dogs and cats. Each image in this fol
 
 Since the Kaggle's free GPU/RAM is limited, we need to decrease the size of the raw image file so that entire traning process can be finished within the computing power.
 
-## Transfer Learning <a name="Transfer-Learning"></a>
-
+## Transfer Learning
 ### Benefits of Transfer Learning
 
 In transfer learning, a machine learning model is trained on one kind of problem, and then used on a different but related problem, drawing on the knowledge it already has while learning its new task. This could be as simple as training a model to recognize giraffes in images, and then making use of this pre-existing expertise to teach the same model to recognize pictures of sheep.
