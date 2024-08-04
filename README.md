@@ -1,78 +1,70 @@
 
-# <center> Cats Vs Dogs Image Classification using Transfer Learning
+# <center> Cat vs. Dogs Prediction
 
 <center> <img src="https://github.com/brandon-park/Transfer_learning_cat_vs_dog/blob/main/Header_Cats-vs-Dogs-951x512.png?raw=true" width="70%"/>
 
-## TOC:
 
-1. [Introduction](#Introduction)
-2. [Transfer Learning](#Transfer-Learning)
-3. [Code Summary](#Code-Summary)
+## Table of Contents
+- [Introduction](#introduction)
+- [Dataset Description](#dataset-description)
+- [Transfer Learning](#transfer-learning)
+- [Code Summary](#code-summary)
+- [Evaluation](#evaluation)
+- [Conclusion](#conclusion)
+- [Future Work](#future-work)
 
 ## Introduction
-This repository contains a Jupyter notebook that implements a Convolutional Neural Network (CNN) to classify images of cats and dogs. The notebook explores two different model architectures: a custom CNN and a pre-trained VGG16 model.
+This repository contains a Jupyter notebook that implements a Convolutional Neural Network (CNN) to classify images of cats and dogs using both a custom CNN and a pre-trained VGG16 model. This notebook is designed to be run on Kaggle.
 
-This Notebook should be run in Kaggle to import the dataset.
+**Kaggle Competition**: [dogs-vs-cats-redux-kernels-edition](https://www.kaggle.com/c/dogs-vs-cats-redux-kernels-edition)
 
-- Competition name: dogs-vs-cats-redux-kernels-edition
- 
-https://www.kaggle.com/c/dogs-vs-cats-redux-kernels-edition
+## Dataset Description
+- **Training Set**: 25,000 labeled images of cats and dogs.
+- **Test Set**: 12,500 images requiring probability predictions for being a dog (1 = dog, 0 = cat).
 
-#### Dataset Description
-The train folder contains 25,000 images of dogs and cats. Each image in this folder has the label as part of the filename. The test folder contains 12,500 images, named according to a numeric id. For each image in the test set, you should predict a probability that the image is a dog (1 = dog, 0 = cat).
-
-Since the Kaggle's free GPU/RAM is limited, we need to decrease the size of the raw image file so that entire traning process can be finished within the computing power.
+Due to Kaggle's limited free GPU/RAM, image sizes are reduced to ensure the training process completes within the available computing power.
 
 ## Transfer Learning
-### Benefits of Transfer Learning
-
-In transfer learning, a machine learning model is trained on one kind of problem, and then used on a different but related problem, drawing on the knowledge it already has while learning its new task. This could be as simple as training a model to recognize giraffes in images, and then making use of this pre-existing expertise to teach the same model to recognize pictures of sheep.
-
-The main benefits of transfer learning for machine learning include:
-
-- Removing the need for a large set of labelled training data for every new model.
-- Improving the efficiency of machine learning development and deployment for multiple models.
-- A more generalised approach to machine problem solving, leveraging different algorithms to solve new challenges.
-- Models can be trained within simulations instead of real-world environments.
-
+### Benefits
+- Reduces the need for extensive labeled data for new models.
+- Enhances efficiency in developing and deploying machine learning models.
+- Provides a generalized approach to solving related problems.
+- Allows models to be trained in simulations rather than real-world environments.
 
 ## Code Summary
-The notebook includes the following key sections:
+### Data Loading and Preprocessing
+- Import libraries: numpy, pandas, TensorFlow.
+- Load and preprocess the dataset.
 
-1. **Data Loading and Preprocessing:**
-   - Import necessary libraries such as numpy, pandas, and TensorFlow.
-   - Load and preprocess the dataset.
+### Model Building
+- Custom CNN model using Keras' Sequential API.
+- Pre-trained VGG16 model for transfer learning.
 
-2. **Model Building:**
-   - Build the custom CNN model using Keras' Sequential API.
-   - Implement the pre-trained VGG16 model for transfer learning.
+### Model Compilation and Training
+- Compile with Adam optimizer and binary crossentropy loss.
+- Train the model and evaluate performance.
 
-3. **Model Compilation and Training:**
-   - Compile the model with the Adam optimizer and binary crossentropy loss.
-   - Train the model on the dataset and evaluate its performance.
+### Model Evaluation and Predictions
+- Evaluate on the validation dataset.
+- Predict on the test dataset and process results.
 
-4. **Model Evaluation and Predictions:**
-   - Evaluate the model on the validation dataset.
-   - Make predictions on the test dataset and process the results.
+## Evaluation
+Submissions are scored on log loss:
+\[ \text{LogLoss} = -\frac{1}{n}\sum_{i=1}^{n} \left[ y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \right] \]
+Where:
+- \( n \) = number of images in the test set
+- \( \hat{y}_i \) = predicted probability of the image being a dog
+- \( y_i \) = 1 if the image is a dog, 0 if cat
+- \( \log() \) = natural logarithm
 
-#### Evaluation
-Submissions are scored on the log loss:
+A smaller log loss indicates better performance.
 
-LogLoss=−1n∑i=1n[yilog(y^i)+(1−yi)log(1−y^i)],
-where
+## Conclusion
+This notebook demonstrates effective image classification using custom and pre-trained CNN models. The pre-trained VGG16 model achieved a high validation accuracy of 98.04%, showcasing the power of transfer learning.
 
-n is the number of images in the test set
-\\( \hat{y}_i \\) is the predicted probability of the image being a dog
-\\( y_i \\) is 1 if the image is a dog, 0 if cat
-\\( log() \\) is the natural (base e) logarithm
-A smaller log loss is better.
-
-### Conclusion
-This notebook provides a comprehensive implementation of image classification using both custom and pre-trained CNN models. The pre-trained VGG16 model achieved high validation accuracy, demonstrating the effectiveness of transfer learning for this task.
-
-### Future Work
+## Future Work
 - Further tuning of hyperparameters and model architecture.
 - Experimentation with other pre-trained models.
-- Application of additional data augmentation techniques to improve model robustness.
+- Application of additional data augmentation techniques to enhance model robustness.
 
 Feel free to explore the notebook for detailed code and outputs.
