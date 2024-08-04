@@ -50,12 +50,15 @@ Due to Kaggle's limited free GPU/RAM, image sizes are reduced to ensure the trai
 
 ## Evaluation
 Submissions are scored on log loss:
-\[ \text{LogLoss} = -\frac{1}{n}\sum_{i=1}^{n} \left[ y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \right] \]
-Where:
-- \( n \) = number of images in the test set
-- \( \hat{y}_i \) = predicted probability of the image being a dog
-- \( y_i \) = 1 if the image is a dog, 0 if cat
-- \( \log() \) = natural logarithm
+
+LogLoss=−1n∑i=1n[yilog(y^i)+(1−yi)log(1−y^i)],
+where
+
+n is the number of images in the test set
+\\( \hat{y}_i \\) is the predicted probability of the image being a dog
+\\( y_i \\) is 1 if the image is a dog, 0 if cat
+\\( log() \\) is the natural (base e) logarithm
+A smaller log loss is better.
 
 A smaller log loss indicates better performance.
 
